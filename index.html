@@ -1,18 +1,93 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>yx-slide多用轮播组件</title>
-	</head>
-	<body>
-		<!-- 轮播模块1 -->
-		
-		<!-- 轮播模块2 -->
-		
-		<!-- 轮播模块3 -->
-		
-		<!-- 轮播模块4 -->
-		
-		<!-- 轮播模块5 -->
-	</body>
+    <head>
+    <meta charset="UTF-8">
+    <title>yx-slide多用轮播组件</title>
+    <link rel="stylesheet" href="css/yx-slider.css" />
+    <style>
+        /* 只需设置轮播最外层容器的宽高即可，内部尺寸会自行调整 */
+        .one,.two{
+            display: inline-block;
+            width: 500px;
+        }
+        #mySlider1,#mySlider2 {
+            width: 300px;
+            height: 525px;
+        }
+        #mySlider1 .yx-slider-ctrl-pointer i.active,
+        #mySlider2 .yx-slider-ctrl-pointer i.active {
+            background-color: #6699cc;
+        }
+        #mySlider3,#mySlider4{
+        width: 790px;
+        height: 340px;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="one">
+            <!-- 轮播模块1 -->
+            <h2>滑动轮播效果,默认参数</h2>
+            <!-- 轮播模块 -->
+            <div id="mySlider1" class="yx-slider">
+                <!-- 视图载体层 -->
+                <div class="yx-slider-view">
+                    <a class="item" href="javascript"><img src="img/IMG_4921.JPG" alt="" /></a>
+                    <a class="item" href="javascript"><img src="img/IMG_4922.JPG" alt="" /></a>
+                    <a class="item" href="javascript"><img src="img/IMG_4923.JPG" alt="" /></a>
+                    <a class="item" href="javascript"><img src="img/IMG_4924.JPG" alt="" /></a>
+                    <a class="item" href="javascript"><img src="img/IMG_4925.JPG" alt="" /></a>
+                </div>
+                <!-- 控制器载体层 -->
+                <!-- JS会根据参数自动创建控制器 -->
+            </div>
+        </div>
+        <div class="two">
+            <!-- 轮播模块2 -->
+            <h2>滑动轮播效果,默认参数</h2>
+            <!-- 轮播模块 -->
+            <div id="mySlider2" class="yx-slider">
+                <!-- 视图载体层 -->
+                <div class="yx-slider-view">
+                    <a class="item" href="javascript"><img src="img/IMG_4921.JPG" alt="" /></a>
+                    <a class="item" href="javascript"><img src="img/IMG_4922.JPG" alt="" /></a>
+                    <a class="item" href="javascript"><img src="img/IMG_4923.JPG" alt="" /></a>
+                    <a class="item" href="javascript"><img src="img/IMG_4924.JPG" alt="" /></a>
+                    <a class="item" href="javascript"><img src="img/IMG_4925.JPG" alt="" /></a>
+                </div>
+                <!-- 控制器载体层 -->
+                <!-- JS会根据参数自动创建控制器 -->
+            </div>
+        </div>
+        <!-- 轮播模块3 -->
+        <h2>淡入淡出轮播效果,默认参数</h2>
+        <div id="mySlider3" class="yx-slider">
+            <div class="yx-slider-view">
+                <a class="item active" href="javascript:;"><img src="img/banner1.jpg" alt="" /></a>
+                <a class="item" href="javascript:;"><img src="img/banner2.jpg" alt="" /></a>
+                <a class="item" href="javascript:;"><img src="img/banner3.jpg" alt="" /></a>
+                <a class="item" href="javascript:;"><img src="img/banner4.jpg" alt="" /></a>
+            </div>
+        </div>
+        <!-- 轮播模块3 -->
+
+        <!-- 轮播模块4 -->
+
+        <!-- 轮播模块5 -->
+
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="js/yx-slider.js"></script>
+        <script>
+            $('#mySlider1').yxSlide();
+            $('#mySlider2').yxSlide({
+                isFade: true,
+                speed:1000
+            });
+            $('#mySlider3').yxSlide({
+                interval: 4000,
+                speed: 500,
+                isFade: true
+            });
+        </script>
+    </body>
 </html>

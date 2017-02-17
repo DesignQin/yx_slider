@@ -5,12 +5,11 @@
 .yx-slider .yx-slider-ctrl .yx-slider-ctrl-pointer i { display: block; float: left; margin-right: 10px; width: 12px; height: 12px; border-radius: 50%; background-color: #fff; cursor: pointer; }
 .yx-slider .yx-slider-ctrl .yx-slider-ctrl-pointer i.active { background-color: #E4393C; }
 .yx-slider .yx-slider-ctrl .yx-slider-ctrl-pointer i:last-child { margin: 0; }
-.yx-slider .yx-slider-ctrl .yx-slider-ctrl-btn span { display: block; position: absolute; top: 50%; width: 40px; height: 60px; background-color: rgba(0, 0, 0, 0.7); text-align: center; color: #fff; font-size: 30px; line-height: 60px; transform: translateY(-50%); transition: all 0.3s; cursor: pointer; opacity: 0.2; }
+.yx-slider .yx-slider-ctrl .yx-slider-ctrl-btn span { display: block; position: absolute; top: 50%; width: 40px; height: 60px; margin-top: -30px; background-color: rgba(0, 0, 0, 0.7); text-align: center; color: #fff; font-size: 30px; line-height: 60px; transition: all 0.3s; cursor: pointer; opacity: 0.2; }
 .yx-slider .yx-slider-ctrl .yx-slider-ctrl-btn span:hover { opacity: 1; }
 .yx-slider .yx-slider-ctrl .yx-slider-ctrl-btn .yx-prev { left: 0; }
 .yx-slider .yx-slider-ctrl .yx-slider-ctrl-btn .yx-next { right: 0; }
 .yx-slider .yx-view-fade .item { display: none; position: absolute; }
-.yx-slider .yx-view-fade .item.active { display: block; }
 .yx-slider .yx-view-slide .item { float: left; }
 
 /*# sourceMappingURL=yx-slider.css.map */

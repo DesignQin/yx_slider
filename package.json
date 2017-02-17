@@ -1,0 +1,11 @@
+{
+  "name": "yx_slider",
+  "version": "1.0.0",
+  "description": "yxSlider是一款多用轮播组件，使用它你可以用很少的代码轻松的实现多种轮播效果",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cphayim",
+  "license": "ISC"
+}

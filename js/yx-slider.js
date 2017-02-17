@@ -20,7 +20,7 @@
 
         // 初始化
         var $view = $(ele).find('.yx-slider-view');
-        $view.find('.item').eq(0).addClass('active');
+        $view.find('.item').eq(0).css({display:"inline"}).addClass('active');
         // 创建控制层
         var $ctrl = $('<div class="yx-slider-ctrl">');
         // 插入控制层
@@ -98,7 +98,7 @@
              */
             function startFade(index) {
                 // 视图
-                $item.eq(index).stop().fadeIn(config.speed).addClass('active').siblings().fadeOut(config.speed).removeClass('active');
+                $item.eq(index).fadeIn(config.speed).addClass('active').siblings().fadeOut(config.speed).removeClass('active');
                 //控制器
                 $ctrl.find('.yx-slider-ctrl-pointer i').eq(index).addClass('active').siblings().removeClass('active');
             }
@@ -203,4 +203,4 @@
     }
 })(jQuery);
 
-$('.m-slider').yxSlide({isFade: false});
+$('.m-slider').yxSlide({isFade: true});
