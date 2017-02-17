@@ -1,0 +1,79 @@
+.yx-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 600px;
+    -webkit-user-select: none;
+    .yx-slider-view {
+        position: absolute;left: 0;
+        width: 100%;
+        height: 100%;
+        a,img,.item{
+            display: inline-block;
+            width: 100%;height: 100%;
+        }
+    }
+    .yx-slider-ctrl {
+        .yx-slider-ctrl-pointer{
+            position: absolute;bottom: 5%;left: 50%;
+            overflow: hidden;border-radius: 10px;
+            padding: 5px 10px;
+            transform: translateX(-50%);
+            background-color: rgba(255,255,255,0.4);
+            i{
+                display: block;
+                float: left;
+                margin-right: 10px;
+                width: 12px;height: 12px;
+                border-radius: 50%;
+                background-color: #fff;
+                cursor: pointer;
+                &.active{
+                    background-color: #E4393C;
+                } 
+                &:last-child{
+                    margin: 0;
+                }
+            }
+        }
+        .yx-slider-ctrl-btn{
+            span{
+                display: block;position: absolute;top: 50%;
+                width: 40px;height: 60px;
+                background-color: rgba(0,0,0,0.7);text-align: center;
+                color: #fff;font-size: 30px;line-height: 60px;
+                transform: translateY(-50%);transition: all 0.3s;
+                cursor: pointer;opacity: 0.2;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+            .yx-prev{
+                left: 0;
+            }
+            .yx-next{
+                right: 0;
+            }
+        }
+    }
+    
+    /* Type */
+    /* Fade */
+    .yx-view-fade{
+        .item{
+            display: none;
+            position: absolute;
+            &.active{
+                display: block;
+            }
+        }    
+    }
+    /* Slide */
+    .yx-view-slide{
+        
+        .item{
+            float: left;
+        }
+    }
+    
+}
