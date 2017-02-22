@@ -8,19 +8,25 @@
     var yxStart = function(ele, options) {
         // 默认配置
         var config = {
-            isFade: false, // 是否使用淡入淡出效果
-            interval: 3500, // 轮播间隔，毫秒
-            speed: 600, // 动画持续时间
-            vertical: false, // 是否使用垂直轮播(未完成)
-            btn: true, // 是否启用切换按钮
-            pointer: true // 是否显示计数点
-        }
-        // 配置参数合并
+                isFade: false, // 是否使用淡入淡出效果
+                interval: 3500, // 轮播间隔，毫秒
+                speed: 600, // 动画持续时间
+                vertical: false, // 是否使用垂直轮播(未完成)
+                btn: true, // 是否启用切换按钮
+                pointer: true, // 是否显示计数点
+                autoPlay: true, // 是否自动播放
+                pointerHover: false // 指示器是否悬停触发，默认是点击触发
+            }
+            // 配置参数合并
         $.extend(true, config, options);
 
+        // 指示器事件类型
+        var pointerEventType = config.pointerHover ? 'mouseenter' : 'click';
         // 初始化
         var $view = $(ele).find('.yx-slider-view');
-        $view.find('.item').eq(0).css({display:"inline"}).addClass('active');
+        $view.find('.item').eq(0).css({
+            display: "inline"
+        }).addClass('active');
         // 创建控制层
         var $ctrl = $('<div class="yx-slider-ctrl">');
         // 插入控制层
@@ -74,7 +80,7 @@
                 startFade(index);
             }).on('click', '.yx-next', function() {
                 next();
-            }).on('click', '.yx-slider-ctrl-pointer i', function() {
+            }).on(pointerEventType, '.yx-slider-ctrl-pointer i', function() {
                 index = $(this).index();
                 startFade(index);
             });
@@ -104,6 +110,9 @@
             }
 
             function autoPlay() {
+                if (!config.autoPlay) {
+                    return;
+                }
                 timer = setInterval(next, config.interval);
             }
         }
@@ -133,11 +142,11 @@
             autoPlay();
 
             //事件
-			$ctrl.on('click', '.yx-prev', function() {
-               	prev();
+            $ctrl.on('click', '.yx-prev', function() {
+                prev();
             }).on('click', '.yx-next', function() {
                 next();
-            }).on('click', '.yx-slider-ctrl-pointer i', function() {
+            }).on(pointerEventType, '.yx-slider-ctrl-pointer i', function() {
                 index = $(this).index();
                 startSlide(index);
             });
@@ -154,21 +163,22 @@
             function next() {
                 index++;
                 if (index > total - 1) {
-                    //右侧超出，重置坐标及索引到0
+                    //右侧超出，重置坐标设为0
                     $view.css('left', 0);
-                    index = 0;
+                    index = 1;
                 }
                 startSlide(index);
             }
-			function prev(){
-				index--;
-	            if (index < 0) {
-	                //左侧超出，重置坐标到末尾插入的那张
-	                $view.css('left', -(total - 1) * step);
-	                index = total - 2; //准备前往最后一张图(非插入的那张)
-	            }
-	            startSlide(index);
-			}
+
+            function prev() {
+                index--;
+                if (index < 0) {
+                    //左侧超出，重置坐标到末尾插入的那张
+                    $view.css('left', -(total - 1) * step);
+                    index = total - 2; //准备前往最后一张图(非插入的那张)
+                }
+                startSlide(index);
+            }
             /**
              * @description 根据索引值滚动
              * @param {Object} index 索引值
@@ -190,17 +200,18 @@
              * 设置定时器自动轮播
              */
             function autoPlay() {
+                if (!config.autoPlay) {
+                    return;
+                }
                 timer = setInterval(next, config.interval);
             }
         }
     }
     $.fn.yxSlide = function(options) {
         $(this).each(function(index, ele) {
-            yxStart(ele,options);
+            yxStart(ele, options);
         });
         // 返回值，以便支持链式调用
         return this;
     }
 })(jQuery);
-
-$('.m-slider').yxSlide({isFade: true});
